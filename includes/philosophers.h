@@ -6,7 +6,7 @@
 /*   By: rmouduri <rmouduri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 11:20:26 by rmouduri          #+#    #+#             */
-/*   Updated: 2021/12/01 16:14:36 by rmouduri         ###   ########.fr       */
+/*   Updated: 2021/12/01 17:26:29 by rmouduri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,7 @@ unsigned long long	get_elapsedtime(void);
 void				ft_usleep(unsigned long long ms);
 void				print_state(char *state, t_philo *philo, char is_monitor);
 int					is_alive(t_philo *philo);
+void				*monitoring(void *arg);
 
 int					return_error(char *s1, char *s2, char *s3, int ret);
 int					ft_strlen(const char *s);

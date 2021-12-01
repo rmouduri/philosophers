@@ -9,7 +9,8 @@ SRCS		=	srcs/main.c	\
 				srcs/threads.c	\
 				srcs/simulation.c	\
 				srcs/time.c	\
-				srcs/print.c
+				srcs/print.c	\
+				srcs/monitoring.c
 OBJS_SRCS	=	$(SRCS:.c=.o)
 
 .c.o:
