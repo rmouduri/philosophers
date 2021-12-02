@@ -6,7 +6,7 @@
 /*   By: rmouduri <rmouduri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/25 14:39:10 by rmouduri          #+#    #+#             */
-/*   Updated: 2021/12/01 15:30:25 by rmouduri         ###   ########.fr       */
+/*   Updated: 2021/12/02 14:34:03 by rmouduri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,8 @@ int	main(int ac, char **av)
 	philos = NULL;
 	if (check_philo_args(ac, av) != 0)
 		return (1);
-	if (init_info(ac, av, &info) != 0)
+	if (init_info(ac, av, &info) != 0
+		|| info.nb_of_philo == 0 || info.must_eat == 0)
 		return (2);
 	if (init_philos(&info, &philos))
 		return (free_structs(&info, philos));

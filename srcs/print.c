@@ -6,7 +6,7 @@
 /*   By: rmouduri <rmouduri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/30 01:32:57 by rmouduri          #+#    #+#             */
-/*   Updated: 2021/12/01 16:37:24 by rmouduri         ###   ########.fr       */
+/*   Updated: 2021/12/02 14:51:41 by rmouduri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,23 +43,27 @@ static int	add_n(char *str, unsigned long long int n)
 	return (ret);
 }
 
-void	print_state(char *state, t_philo *philo, char is_monitor)
+void	print_state(char *state, t_philo *philo, char is_monitor, char fork)
 {
 	char	s[128];
 	int		i;
+	int		size;
 
 	i = 0;
-	pthread_mutex_lock(&philo->info->time_mutex);
+	pthread_mutex_lock(&philo->info->write_mutex);
 	i += add_n(&s[i], get_elapsedtime());
-	pthread_mutex_unlock(&philo->info->time_mutex);
 	ft_strcpy(&s[i], ": ");
 	i += 2;
 	i += add_n(&s[i], philo->id);
 	ft_strcpy(&s[i], state);
 	i += ft_strlen(state);
 	s[i] = 0;
-	pthread_mutex_lock(&philo->info->write_mutex);
+	size = ft_strlen(s);
 	if (is_monitor || (!is_monitor && is_alive(philo)))
-		write(1, s, ft_strlen(s));
+	{
+		write(2, s, size);
+		if (fork)
+			write(2, s, size);
+	}
 	pthread_mutex_unlock(&philo->info->write_mutex);
 }

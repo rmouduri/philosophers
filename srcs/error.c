@@ -6,7 +6,7 @@
 /*   By: rmouduri <rmouduri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/27 12:15:33 by rmouduri          #+#    #+#             */
-/*   Updated: 2021/11/29 16:07:15 by rmouduri         ###   ########.fr       */
+/*   Updated: 2021/12/01 19:52:04 by rmouduri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,8 @@ number_of_philosophers  time_to_die  time_to_eat  time_to_sleep  \
 		while (av[i][++j])
 		{
 			if (!ft_isdigit(av[i][j]))
-				return (return_error(av[i], "Numeric argument required", 0, 3));
+				return (return_error(av[i],
+						"Numeric/Positive argument required", 0, 3));
 		}
 		tmp = ft_atoi(av[i]);
 		if (tmp > 2147483647)

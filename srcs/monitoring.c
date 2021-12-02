@@ -6,7 +6,7 @@
 /*   By: rmouduri <rmouduri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 17:15:52 by rmouduri          #+#    #+#             */
-/*   Updated: 2021/12/01 17:27:26 by rmouduri         ###   ########.fr       */
+/*   Updated: 2021/12/02 14:57:12 by rmouduri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ static int	end_all_simulations(int id, t_philo *philos, t_info *info)
 	pthread_mutex_lock(&info->alive_mutex);
 	info->alive = 0;
 	pthread_mutex_unlock(&info->alive_mutex);
-	print_state(IS_DEAD, &philos[id], 1);
+	print_state(IS_DEAD, &philos[id], 1, 0);
 	i = -1;
 	while (++i < (int)info->nb_of_philo)
 	{

@@ -49,7 +49,6 @@ int	init_philos(t_info *info, t_philo **philos)
 		(*philos)[i].info = info;
 		(*philos)[i].thread = 0;
 		(*philos)[i].id = i;
-		(*philos)[i].forks = 0;
 		(*philos)[i].has_eaten = 0;
 		(*philos)[i].last_meal = 0;
 	}
@@ -78,7 +77,6 @@ int	init_mutex(t_info *info)
 	i = -1;
 	while (++i < (int)(info->nb_of_philo))
 		pthread_mutex_init(&info->ids_mutex[i], NULL);
-	pthread_mutex_init(&info->time_mutex, NULL);
 	pthread_mutex_init(&info->write_mutex, NULL);
 	pthread_mutex_init(&info->alive_mutex, NULL);
 	return (0);

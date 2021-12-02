@@ -6,7 +6,7 @@
 /*   By: rmouduri <rmouduri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 11:20:26 by rmouduri          #+#    #+#             */
-/*   Updated: 2021/12/01 17:26:29 by rmouduri         ###   ########.fr       */
+/*   Updated: 2021/12/02 14:55:04 by rmouduri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,6 @@ typedef struct s_info
 	pthread_mutex_t	*ids_mutex;
 	pthread_mutex_t	*meal_mutex;
 	pthread_mutex_t	write_mutex;
-	pthread_mutex_t	time_mutex;
 	pthread_mutex_t	alive_mutex;
 }	t_info;
 
@@ -50,7 +49,6 @@ typedef struct s_philo
 	struct s_info		*info;
 	pthread_t			thread;
 	unsigned int		id;
-	unsigned int		forks;
 	unsigned int		has_eaten;
 	unsigned long long	last_meal;
 }	t_philo;
@@ -67,7 +65,8 @@ void				ph_sleep(t_philo *philo);
 void				*monitoring(void *arg);
 unsigned long long	get_elapsedtime(void);
 void				ft_usleep(unsigned long long ms);
-void				print_state(char *state, t_philo *philo, char is_monitor);
+void				print_state(char *state, t_philo *philo,
+						char is_monitor, char n);
 int					is_alive(t_philo *philo);
 void				*monitoring(void *arg);
 

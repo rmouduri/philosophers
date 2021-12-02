@@ -22,7 +22,7 @@ NAME		=	philo
 
 CFLAGS      =   -Wall -Werror -Wextra
 
-CC			=	gcc
+CC			=	clang
 
 RM			=	rm -f
 
