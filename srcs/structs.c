@@ -17,12 +17,10 @@
 
 int	free_structs(t_info *info, t_philo *philos)
 {
-	if (info->forks)
-		free(info->forks);
-	if (info->forks_mutex)
-		free(info->forks_mutex);
 	if (info->ids)
 		free(info->ids);
+	if (info->forks_mutex)
+		free(info->forks_mutex);
 	if (info->ids_mutex)
 		free(info->ids_mutex);
 	if (info->meal_mutex)
@@ -61,19 +59,19 @@ int	init_mutex(t_info *info)
 
 	info->forks_mutex = malloc(sizeof(pthread_mutex_t) * (info->nb_of_philo));
 	if (!info->forks_mutex)
-		return (return_error("Can't init forks mutex tab", 0, 0, 3));
+		return (return_error("Can't init forks mutex tab", 0, 0, 2));
 	i = -1;
 	while (++i < (int)(info->nb_of_philo))
 		pthread_mutex_init(&info->forks_mutex[i], NULL);
 	info->meal_mutex = malloc(sizeof(pthread_mutex_t) * (info->nb_of_philo));
 	if (!info->meal_mutex)
-		return (return_error("Can't init meal mutex tab", 0, 0, 4));
+		return (return_error("Can't init meal mutex tab", 0, 0, 3));
 	i = -1;
 	while (++i < (int)(info->nb_of_philo))
 		pthread_mutex_init(&info->meal_mutex[i], NULL);
 	info->ids_mutex = malloc(sizeof(pthread_mutex_t) * (info->nb_of_philo));
 	if (!info->ids_mutex)
-		return (return_error("Can't init ids mutex tab", 0, 0, 5));
+		return (return_error("Can't init ids mutex tab", 0, 0, 4));
 	i = -1;
 	while (++i < (int)(info->nb_of_philo))
 		pthread_mutex_init(&info->ids_mutex[i], NULL);
@@ -94,7 +92,6 @@ int	init_info(int ac, char **av, t_info *info)
 		info->must_eat = -1;
 	info->alive = 1;
 	info->ids = NULL;
-	info->forks = NULL;
 	info->ids_mutex = NULL;
 	info->forks_mutex = NULL;
 	info->meal_mutex = NULL;
@@ -102,9 +99,5 @@ int	init_info(int ac, char **av, t_info *info)
 	if (!info->ids)
 		return (return_error("Can't init ids tab", 0, 0, 1));
 	memset(info->ids, 1, info->nb_of_philo);
-	info->forks = malloc(sizeof(char) * info->nb_of_philo);
-	if (!info->forks)
-		return (return_error("Can't init forks tab", 0, 0, 2));
-	memset(info->forks, 1, info->nb_of_philo);
 	return (init_mutex(info));
 }

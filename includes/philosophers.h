@@ -6,7 +6,7 @@
 /*   By: rmouduri <rmouduri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 11:20:26 by rmouduri          #+#    #+#             */
-/*   Updated: 2021/12/02 14:55:04 by rmouduri         ###   ########.fr       */
+/*   Updated: 2021/12/03 00:53:48 by rmouduri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ typedef struct s_info
 	unsigned int	has_finished;
 	int				must_eat;
 	int				alive;
-	char			*forks;
 	char			*ids;
 	pthread_mutex_t	*forks_mutex;
 	pthread_mutex_t	*ids_mutex;
