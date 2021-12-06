@@ -17,6 +17,8 @@
 
 int	free_structs(t_info *info, t_philo *philos)
 {
+	if (info->forks)
+		free(info->forks);
 	if (info->ids)
 		free(info->ids);
 	if (info->forks_mutex)
@@ -47,6 +49,9 @@ int	init_philos(t_info *info, t_philo **philos)
 		(*philos)[i].info = info;
 		(*philos)[i].thread = 0;
 		(*philos)[i].id = i;
+		(*philos)[i].forks = 0;
+		(*philos)[i].lfork = 0;
+		(*philos)[i].rfork = 0;
 		(*philos)[i].has_eaten = 0;
 		(*philos)[i].last_meal = 0;
 	}
@@ -95,9 +100,14 @@ int	init_info(int ac, char **av, t_info *info)
 	info->ids_mutex = NULL;
 	info->forks_mutex = NULL;
 	info->meal_mutex = NULL;
+	info->forks = NULL;
 	info->ids = malloc(sizeof(char) * info->nb_of_philo);
 	if (!info->ids)
 		return (return_error("Can't init ids tab", 0, 0, 1));
 	memset(info->ids, 1, info->nb_of_philo);
+	info->forks = malloc(sizeof(char) * info->nb_of_philo);
+	if (!info->forks)
+		return (return_error("Can't init forks tab", 0, 0, 1));
+	memset(info->forks, 1, info->nb_of_philo);
 	return (init_mutex(info));
 }

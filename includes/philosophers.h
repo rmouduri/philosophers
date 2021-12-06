@@ -6,7 +6,7 @@
 /*   By: rmouduri <rmouduri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 11:20:26 by rmouduri          #+#    #+#             */
-/*   Updated: 2021/12/06 12:52:11 by rmouduri         ###   ########.fr       */
+/*   Updated: 2021/12/06 13:43:39 by rmouduri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ typedef struct s_info
 	unsigned int	has_finished;
 	int				must_eat;
 	int				alive;
+	char			*forks;
 	char			*ids;
 	pthread_mutex_t	*forks_mutex;
 	pthread_mutex_t	*ids_mutex;
@@ -46,6 +47,9 @@ typedef struct s_info
 typedef struct s_philo
 {
 	struct s_info		*info;
+	int					forks;
+	int					rfork;
+	int					lfork;
 	pthread_t			thread;
 	unsigned int		id;
 	unsigned int		has_eaten;
@@ -58,7 +62,7 @@ int					init_philos(t_info *info, t_philo **philos);
 int					init_threads(t_philo *philos, int nb_of_philo);
 int					free_structs(t_info *info, t_philo *philo);
 void				*simulation(t_philo *philo);
-void				ph_check_fork(t_philo *philo);
+void				ph_get_forks(t_philo *philo);
 void				ph_eat(t_philo *philo);
 void				ph_sleep(t_philo *philo);
 void				*monitoring(void *arg);

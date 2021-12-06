@@ -10,6 +10,7 @@ SRCS		=	srcs/main.c	\
 				srcs/simulation.c	\
 				srcs/time.c	\
 				srcs/print.c	\
+				srcs/forks.c	\
 				srcs/monitoring.c
 OBJS_SRCS	=	$(SRCS:.c=.o)
 
@@ -22,7 +23,7 @@ NAME		=	philo
 
 CFLAGS      =   -Wall -Werror -Wextra
 
-CC			=	clang
+CC			=	clang -g3 -fsanitize=thread
 
 RM			=	rm -f
 
