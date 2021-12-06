@@ -6,7 +6,7 @@
 /*   By: rmouduri <rmouduri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/30 01:32:57 by rmouduri          #+#    #+#             */
-/*   Updated: 2021/12/02 14:51:41 by rmouduri         ###   ########.fr       */
+/*   Updated: 2021/12/06 12:48:02 by rmouduri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,9 +61,9 @@ void	print_state(char *state, t_philo *philo, char is_monitor, char fork)
 	size = ft_strlen(s);
 	if (is_monitor || (!is_monitor && is_alive(philo)))
 	{
-		write(2, s, size);
+		write(1, s, size);
 		if (fork)
-			write(2, s, size);
+			write(1, s, size);
 	}
 	pthread_mutex_unlock(&philo->info->write_mutex);
 }

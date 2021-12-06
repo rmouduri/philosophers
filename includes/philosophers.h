@@ -6,7 +6,7 @@
 /*   By: rmouduri <rmouduri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 11:20:26 by rmouduri          #+#    #+#             */
-/*   Updated: 2021/12/03 00:53:48 by rmouduri         ###   ########.fr       */
+/*   Updated: 2021/12/06 12:52:11 by rmouduri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ int					init_info(int ac, char **av, t_info *philo);
 int					init_philos(t_info *info, t_philo **philos);
 int					init_threads(t_philo *philos, int nb_of_philo);
 int					free_structs(t_info *info, t_philo *philo);
-void				*simulation(void *arg);
+void				*simulation(t_philo *philo);
 void				ph_check_fork(t_philo *philo);
 void				ph_eat(t_philo *philo);
 void				ph_sleep(t_philo *philo);
@@ -65,9 +65,8 @@ void				*monitoring(void *arg);
 unsigned long long	get_elapsedtime(void);
 void				ft_usleep(unsigned long long ms);
 void				print_state(char *state, t_philo *philo,
-						char is_monitor, char n);
+						char is_monitor, char fork);
 int					is_alive(t_philo *philo);
-void				*monitoring(void *arg);
 
 int					return_error(char *s1, char *s2, char *s3, int ret);
 int					ft_strlen(const char *s);

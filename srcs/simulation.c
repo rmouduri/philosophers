@@ -6,7 +6,7 @@
 /*   By: rmouduri <rmouduri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/29 16:09:07 by rmouduri          #+#    #+#             */
-/*   Updated: 2021/12/02 14:56:06 by rmouduri         ###   ########.fr       */
+/*   Updated: 2021/12/06 12:51:45 by rmouduri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,15 +58,17 @@ void	ph_check_fork(t_philo *philo)
 	pthread_mutex_unlock(&philo->info->forks_mutex[id]);
 }
 
-void	*simulation(void *arg)
+void	*simulation(t_philo *philo)
 {
-	t_philo	*philo;
-
-	philo = (t_philo *)arg;
 	if (philo->id == 0)
 		get_elapsedtime();
 	else
 		usleep(100);
+	if (philo)
+	{
+		print_state(FORK, philo, 0, 0);
+		return (NULL);
+	}
 	while (is_alive(philo) && (philo->info->must_eat == -1
 			|| ((int)philo->has_eaten < philo->info->must_eat)))
 	{

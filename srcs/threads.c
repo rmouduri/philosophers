@@ -6,7 +6,7 @@
 /*   By: rmouduri <rmouduri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/29 10:58:36 by rmouduri          #+#    #+#             */
-/*   Updated: 2021/12/01 16:57:16 by rmouduri         ###   ########.fr       */
+/*   Updated: 2021/12/06 12:50:08 by rmouduri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	init_threads(t_philo *philos, int nb_of_philo)
 	while (i < nb_of_philo)
 	{
 		if (pthread_create(&philos[i].thread, 0,
-				&simulation, (void *)&philos[i]) != 0)
+				(void *)(void *)&simulation, (void *)&philos[i]) != 0)
 			return (return_error("Can't create even thread", 0, 0, 1));
 		i += 2;
 	}
@@ -34,7 +34,7 @@ int	init_threads(t_philo *philos, int nb_of_philo)
 	while (i < nb_of_philo)
 	{
 		if (pthread_create(&philos[i].thread, NULL,
-				&simulation, (void *)&philos[i]) != 0)
+				(void *)(void *)&simulation, (void *)&philos[i]) != 0)
 			return (return_error("Can't create odd thread", 0, 0, 1));
 		i += 2;
 	}
