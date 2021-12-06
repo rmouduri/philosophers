@@ -23,7 +23,7 @@ NAME		=	philo
 
 CFLAGS      =   -Wall -Werror -Wextra
 
-CC			=	clang -g3 -fsanitize=thread
+CC			=	clang
 
 RM			=	rm -f
 

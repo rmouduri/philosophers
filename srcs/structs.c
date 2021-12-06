@@ -17,6 +17,17 @@
 
 int	free_structs(t_info *info, t_philo *philos)
 {
+	int	i;
+
+	i = -1;
+	while (++i < (int)info->nb_of_philo)
+	{
+		pthread_mutex_destroy(&info->forks_mutex[i]);
+		pthread_mutex_destroy(&info->meal_mutex[i]);
+		pthread_mutex_destroy(&info->ids_mutex[i]);
+	}
+	pthread_mutex_destroy(&info->write_mutex);
+	pthread_mutex_destroy(&info->alive_mutex);
 	if (info->forks)
 		free(info->forks);
 	if (info->ids)

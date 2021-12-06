@@ -6,7 +6,7 @@
 /*   By: rmouduri <rmouduri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/29 10:58:36 by rmouduri          #+#    #+#             */
-/*   Updated: 2021/12/06 13:52:29 by rmouduri         ###   ########.fr       */
+/*   Updated: 2021/12/06 14:23:04 by rmouduri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,16 @@
 #include <stdio.h>
 #include "philosophers.h"
 
-int	init_threads(t_philo *philos, int nb_of_philo)
+int	init_threads(t_philo *philos, int nb_of_philo, int i)
 {			
-	int			i;
 	pthread_t	sauron;
 
-	i = 0;
 	while (i < nb_of_philo)
 	{
 		if (pthread_create(&philos[i].thread, 0,
 				(void *)(void *)&simulation, (void *)&philos[i]) != 0)
 			return (return_error("Can't create even thread", 0, 0, 1));
+		usleep(50);
 		i += 2;
 	}
 	usleep(1000);

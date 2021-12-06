@@ -6,7 +6,7 @@
 /*   By: rmouduri <rmouduri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 11:20:26 by rmouduri          #+#    #+#             */
-/*   Updated: 2021/12/06 13:43:39 by rmouduri         ###   ########.fr       */
+/*   Updated: 2021/12/06 14:13:46 by rmouduri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ typedef struct s_philo
 int					check_philo_args(int ac, char **av);
 int					init_info(int ac, char **av, t_info *philo);
 int					init_philos(t_info *info, t_philo **philos);
-int					init_threads(t_philo *philos, int nb_of_philo);
+int					init_threads(t_philo *philos, int nb_of_philo, int i);
 int					free_structs(t_info *info, t_philo *philo);
 void				*simulation(t_philo *philo);
 void				ph_get_forks(t_philo *philo);
