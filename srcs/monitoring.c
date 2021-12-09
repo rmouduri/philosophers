@@ -6,11 +6,12 @@
 /*   By: rmouduri <rmouduri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 17:15:52 by rmouduri          #+#    #+#             */
-/*   Updated: 2021/12/02 14:57:12 by rmouduri         ###   ########.fr       */
+/*   Updated: 2021/12/09 12:24:10 by rmouduri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <pthread.h>
+#include <unistd.h>
 #include "philosophers.h"
 
 static int	check_finished(t_info *info)

@@ -6,7 +6,7 @@
 /*   By: rmouduri <rmouduri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/29 10:58:36 by rmouduri          #+#    #+#             */
-/*   Updated: 2021/12/06 14:23:04 by rmouduri         ###   ########.fr       */
+/*   Updated: 2021/12/09 12:25:08 by rmouduri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ int	init_threads(t_philo *philos, int nb_of_philo, int i)
 {			
 	pthread_t	sauron;
 
+	get_elapsedtime();
 	while (i < nb_of_philo)
 	{
 		if (pthread_create(&philos[i].thread, 0,

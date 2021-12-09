@@ -6,7 +6,7 @@
 /*   By: rmouduri <rmouduri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/29 16:09:07 by rmouduri          #+#    #+#             */
-/*   Updated: 2021/12/06 14:15:43 by rmouduri         ###   ########.fr       */
+/*   Updated: 2021/12/09 12:26:12 by rmouduri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,8 +59,6 @@ void	ph_eat(t_philo *philo)
 
 void	*simulation(t_philo *philo)
 {
-	if (philo->id == 0)
-		get_elapsedtime();
 	if (philo->info->nb_of_philo == 1)
 	{
 		print_state(FORK, philo, 0, 0);
